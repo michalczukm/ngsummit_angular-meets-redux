@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="display-3">Buy some stickers</h1>
+  <p class="lead">We proudly present you some random images from pixabay.com</p>
+</div>
+
+<div class="row" style="margin: auto;">
+  <div *ngFor="let sticker of stickers$ | async" class="card text-center">
+    <img [src]="sticker.imageUrl" [attr.alt]="sticker.name" class="card-img-top stickers-card-img">
+    <div class="card-block">
+      <h4 class="card-title">{{ sticker.name }}</h4>
+      <button (click)="buy(sticker)" class="btn btn-primary">Buy</button>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { StickersComponent } from './stickers/stickers.component';
 
 const routes: Routes = [
   {
-    path: '',
-    children: []
+    path: '', pathMatch: 'full', redirectTo: 'stickers'
+  },
+  {
+    path: 'stickers',
+    component: StickersComponent
   }
 ];
 
