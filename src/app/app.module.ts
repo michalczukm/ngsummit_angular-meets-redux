@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StickersModule } from './stickers';
 import { CartModule } from './cart';
+import { createRootReducer } from './common/index';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CartModule } from './cart';
     FormsModule,
     CartModule,
     StickersModule,
+    StoreModule.provideStore(createRootReducer),
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
