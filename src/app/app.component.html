@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+          <a [routerLink]="'stickers'" [routerLinkActive]="'active'" class="nav-link">Stickers</a>
+        </li>
+        <li class="nav-item">
+          <a data-toggle="collapse" class="nav-link" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="badge badge-info"> {{ cartItemsNumber }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <h3>
+      ngSummit 2017
+      <small class="text-muted">Shop</small>
+    </h3>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-block">
+        <smt-cart></smt-cart>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <footer class="footer">
+    <p>© michalczukm 2017</p>
+  </footer>
+
+</div>

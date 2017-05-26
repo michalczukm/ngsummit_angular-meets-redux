@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/out-tsc": true
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
+    "html.suggest.html5": true
+}

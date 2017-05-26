@@ -1,0 +1,21 @@
+{
+  "stickers": [
+    { "name": "tools", "imageUrl": "assets/stickers/img/tools-2308444_960_720.png" },
+    { "name": "phone", "imageUrl": "assets/stickers/img/e-commerce-2308541_960_720.png" },
+    { "name": "panda", "imageUrl": "assets/stickers/img/panda-2308269_960_720.png"},
+    { "name": "red dot", "imageUrl": "assets/stickers/img/tag-1703953_960_720.png"},
+    { "name": "rabbit on the wall", "imageUrl": "assets/stickers/img/sticker-1049722_960_720.jpg"},
+    { "name": "ice cream", "imageUrl": "assets/stickers/img/ice-cream-2308293_960_720.png"}
+  ],
+  "tshirts": [
+    {"name": "another fancy sweater", "imageUrl": "assets/tshirts/img/another-fancy-sweater.png" },
+    {"name": "black", "imageUrl": "assets/tshirts/img/black.png" },
+    {"name": "blue", "imageUrl": "assets/tshirts/img/blue.png" },
+    {"name": "fancy sweater", "imageUrl": "assets/tshirts/img/fancy-sweater.png" },
+    {"name": "kiwi", "imageUrl": "assets/tshirts/img/kiwi.png" },
+    {"name": "red which was washed yesterday", "imageUrl": "assets/tshirts/img/red-washed-yesterday.png" },
+    {"name": "red", "imageUrl": "assets/tshirts/img/red.png" },
+    {"name": "white", "imageUrl": "assets/tshirts/img/white.png" }
+  ]
+}
+
