@@ -6,7 +6,7 @@
           <a [routerLink]="'stickers'" [routerLinkActive]="'active'" class="nav-link">Stickers</a>
         </li>
         <li class="nav-item">
-          <a data-toggle="collapse" class="nav-link" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <a #collapseCart data-toggle="collapse" class="nav-link" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             <i class="fa fa-shopping-cart"></i>
             <span class="badge badge-info"> {{ cartItemsNumber }}</span>
           </a>
