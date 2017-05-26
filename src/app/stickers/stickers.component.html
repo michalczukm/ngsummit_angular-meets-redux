@@ -4,11 +4,11 @@
 </div>
 
 <div class="row" style="margin: auto;">
-  <div *ngFor="let sticker of stickers$ | async" class="card text-center">
+  <div *ngFor="let sticker of stickers$ | async" class="card text-center" [class.row--inactive]="sticker.isInactive">
     <img [src]="sticker.imageUrl" [attr.alt]="sticker.name" class="card-img-top stickers-card-img">
     <div class="card-block">
       <h4 class="card-title">{{ sticker.name }}</h4>
-      <button (click)="buy(sticker)" class="btn btn-primary">Buy</button>
+      <button *ngIf="!sticker.isInactive" (click)="buy(sticker)" class="btn btn-primary">Buy</button>
     </div>
   </div>
 </div>

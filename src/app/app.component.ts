@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer, Renderer2, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CartQueries, RootStore } from './common/cart.reducer';
+import { CartQueries, RootStore, CartOpenAction, CartCloseAction } from './common/cart.reducer';
 
 declare var $: any;
 
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
 
     // good old jquery
     $('#collapseExample')
-      .on('show.bs.collapse', (_) => { })
-      .on('hide.bs.collapse', (_) => { });
+      .on('show.bs.collapse', (_) => { this.store.dispatch(new CartOpenAction()); })
+      .on('hide.bs.collapse', (_) => { this.store.dispatch(new CartCloseAction()); });
 
     // not working :(
     this.renderer.listen(this.collapseCart.nativeElement, 'show.bs.collapse', (event) => {
