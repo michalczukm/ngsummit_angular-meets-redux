@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Sticker } from '../stickers/sticker.model';
-import { Subject } from 'rxjs/Subject';
+import { Store } from '@ngrx/store';
+import { RootStore, StickerAddAction, StickerRemoveAction } from '../common/cart.reducer';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CartService {
-  private stickersSubject = new Subject<Sticker[]>();
-  private stickers = [] as Sticker[];
 
-  public state = this.stickersSubject.asObservable();
+  public state: Observable<Sticker[]>;
+
+  constructor(private store: Store<RootStore>) {
+    this.state = this.store.select(s => s.cart.stickers);
+    this.store.select(s => s).subscribe(x => console.log('succes: ' + JSON.stringify(x)), y => console.log('failed: ' + y))
+  }
 
   add(sticker: Sticker) {
-    this.stickers.push(sticker);
-    this.stickersSubject.next(this.stickers);
+    this.store.dispatch(new StickerAddAction(sticker));
   }
 
   remove(sticker: Sticker) {
-    const index = this.stickers.indexOf(sticker);
-    if (index > -1) {
-      this.stickers.splice(index, 1);
-    }
-
-    this.stickersSubject.next(this.stickers);
+    this.store.dispatch(new StickerRemoveAction(sticker));
   }
 }
