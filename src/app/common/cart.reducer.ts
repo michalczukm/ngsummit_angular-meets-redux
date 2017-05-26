@@ -40,6 +40,10 @@ export interface RootStore {
   cart: CartStore;
 }
 
+export const CartQueries = {
+  itemsNumber: (store: RootStore) => store.cart.stickers.length
+};
+
 export const cartReducer = combineReducers({
   cart: cart
 });

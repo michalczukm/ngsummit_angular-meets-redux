@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from './cart/cart.service';
+import { Store } from '@ngrx/store';
+import { CartQueries, RootStore } from './common/cart.reducer';
 
 @Component({
   selector: 'smt-root',
@@ -9,12 +10,11 @@ import { CartService } from './cart/cart.service';
 export class AppComponent implements OnInit {
   cartItemsNumber = 0;
 
-  constructor(private cartService: CartService) {
+  constructor(private store: Store<RootStore>) {
   }
 
   ngOnInit(): void {
-    this.cartService.state.subscribe(stickers => {
-      this.cartItemsNumber = stickers.length;
-    });
+    this.store.select(CartQueries.itemsNumber)
+      .subscribe(itemsNumber => this.cartItemsNumber = itemsNumber);
   }
 }
