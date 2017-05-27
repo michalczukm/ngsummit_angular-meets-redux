@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Tshirt } from './tshirt.model';
 import { RootStore } from 'app/common';
 import { Store } from '@ngrx/store';
+import { TshirtAddAction } from '../common/cart.reducer';
 
 @Component({
   selector: 'smt-tshirts',
@@ -21,5 +22,6 @@ export class TshirtsComponent implements OnInit {
   }
 
   buy(tshirt: Tshirt) {
+    this.store.dispatch(new TshirtAddAction(tshirt));
   }
 }

@@ -17,3 +17,16 @@
     <img [src]="sticker.imageUrl" width="100px" style="margin: auto" class="card-img-bottom">
   </div>
 </div>
+
+<div *ngIf="(tshirts$ | async)?.length">
+  <h4>Tshirts:</h4>
+</div>
+<div class="row">
+  <div *ngFor="let tshirt of tshirts$ | async" style="margin: 10px" class="card text-center">
+    <div class="card-header">
+      {{ tshirt.name }}
+      <i (click)="removeTshirt(tshirt)" class="fa fa-times fa-2x pull-right" style="color: darkred;" aria-hidden="true"></i>
+    </div>
+    <img [src]="tshirt.imageUrl" width="100px" style="margin: auto" class="card-img-bottom">
+  </div>
+</div>
