@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/Subscription';
-import { CartService } from './cart/cart.service';
+import { RootStore } from './common';
 
 @Component({
   selector: 'smt-root',
@@ -13,13 +13,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscriptions = [] as Subscription[];
 
-  constructor(private cartService: CartService) {
+  constructor(private store: Store<RootStore>) {
   }
 
   ngOnInit(): void {
     this.subscriptions.push(
-      this.cartService.get().map(cart => cart.stickers.length)
-        .subscribe(itemsNumber => this.cartItemsNumber = itemsNumber)
+      this.store.select(store => store.cart.stickers.length)
+        .subscribe(length => this.cartItemsNumber = length)
     );
   }
 
