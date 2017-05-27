@@ -14,7 +14,9 @@ export const createRootReducer = (state: any, action: any): ActionReducer<any> =
 export * from './cart.reducer';
 
 // queries
-export const CartQueries = {
-  itemsNumber: (store: RootStore) => store.cart.stickers.length
-};
+const itemsNumberQuery = (store: RootStore) => store.cart.stickers.length + store.cart.tshirts.length;
 
+export const CartQueries = {
+  itemsNumber: itemsNumberQuery,
+  isCartEmpty: (store: RootStore) => itemsNumberQuery(store) <= 0
+};

@@ -1,4 +1,4 @@
-<div *ngIf="(stickers$ | async)?.length <= 0; then emptyBlock"></div>
+<div *ngIf="(isCartEmpty$ | async); then emptyBlock"></div>
 <ng-template #emptyBlock>
   <h4 class="text-info">
     Don't you want to buy something?
