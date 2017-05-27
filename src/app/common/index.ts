@@ -12,3 +12,9 @@ export const createRootReducer = (state: any, action: any): ActionReducer<any> =
 };
 
 export * from './cart.reducer';
+
+// queries
+export const CartQueries = {
+  itemsNumber: (store: RootStore) => store.cart.stickers.length
+};
+
