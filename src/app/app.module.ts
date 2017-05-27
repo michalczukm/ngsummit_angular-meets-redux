@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StickersModule } from './stickers';
 import { CartModule } from './cart';
-import { createRootReducer } from './common/index';
+import { createRootReducer } from './common';
+import { TshirtsModule } from './tshirts';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { createRootReducer } from './common/index';
     FormsModule,
     CartModule,
     StickersModule,
+    TshirtsModule,
     StoreModule.provideStore(createRootReducer),
     AppRoutingModule
   ],

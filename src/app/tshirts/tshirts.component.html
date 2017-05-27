@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="display-3">Buy some tshirts</h1>
+  <p class="lead">We proudly present you some random images of tshirts from pixabay.com</p>
+</div>
+
+<div class="row" style="margin: auto;">
+  <div *ngFor="let tshirt of tshirts$ | async" class="card text-center">
+    <img [src]="tshirt.imageUrl" [attr.alt]="tshirt.name" class="card-img-top tshirts-card-img">
+    <div class="card-block">
+      <h4 class="card-title">{{ tshirt.name }}</h4>
+      <button (click)="buy(tshirt)" class="btn btn-primary">Buy</button>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StickersComponent } from './stickers/stickers.component';
+import { TshirtsComponent } from './tshirts/tshirts.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: 'stickers',
     component: StickersComponent
+  },
+  {
+    path: 'tshirts',
+    component: TshirtsComponent
   }
 ];
 
