@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Sticker } from '../stickers';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { RootStore } from 'app/common';
+import { Store } from '@ngrx/store';
+import { StickerRemoveAction } from '../common/cart.reducer';
 
 export type Cart = {
   stickers: Sticker[]
@@ -9,24 +12,14 @@ export type Cart = {
 
 @Injectable()
 export class CartService {
-  private stickersSubject = new Subject<Cart>();
-  private cart = { stickers: [] } as Cart;
+
+  constructor(private store: Store<RootStore>) { }
 
   get(): Observable<Cart> {
-    return this.stickersSubject.asObservable();
-  }
-
-  addSticker(sticker: Sticker) {
-    this.cart.stickers.push(sticker);
-    this.stickersSubject.next(this.cart);
+    return this.store.select(store => store.cart);
   }
 
   removeSticker(sticker: Sticker) {
-    const index = this.cart.stickers.indexOf(sticker);
-    if (index > -1) {
-      this.cart.stickers.splice(index, 1);
-    }
-
-    this.stickersSubject.next(this.cart);
+    this.store.dispatch(new StickerRemoveAction(sticker));
   }
 }

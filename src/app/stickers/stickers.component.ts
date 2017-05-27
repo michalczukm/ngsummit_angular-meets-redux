@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Sticker } from './sticker.model';
 import { Store } from '@ngrx/store';
 import { CartService } from '../cart/cart.service';
+import { RootStore } from '../common/index';
+import { StickerAddAction } from '../common/cart.reducer';
 
 @Component({
   selector: 'smt-stickers',
@@ -15,7 +17,7 @@ export class StickersComponent implements OnInit {
 
   constructor(
     private stickersService: StickersService,
-    private cartService: CartService) {
+    private store: Store<RootStore>) {
   }
 
   ngOnInit() {
@@ -23,6 +25,6 @@ export class StickersComponent implements OnInit {
   }
 
   buy(sticker: Sticker) {
-    this.cartService.addSticker(sticker);
+    this.store.dispatch(new StickerAddAction(sticker));
   }
 }
