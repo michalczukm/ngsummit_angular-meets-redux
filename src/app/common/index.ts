@@ -1,5 +1,5 @@
 import { cart, CartStore } from './cart.reducer';
-import { combineReducers, Action, ActionReducer } from '@ngrx/store';
+import { combineReducers, Action, ActionReducer, ActionReducerMap } from '@ngrx/store';
 import { stickers, StickersStore } from './stickers.reducer';
 
 export interface RootStore {
@@ -7,11 +7,9 @@ export interface RootStore {
   stickers: StickersStore;
 }
 
-export const createRootReducer = (state: any, action: any): ActionReducer<any> => {
-  return combineReducers({
-    cart: cart,
-    stickers: stickers
-  })(state, action);
+export const reducers: ActionReducerMap<RootStore> = {
+  cart,
+  stickers,
 };
 
 export * from './cart.reducer';

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { Sticker } from './sticker.model';
 
 @Injectable()
@@ -9,6 +10,8 @@ export class StickersService {
 
   public getAll(): Observable<Sticker[]> {
     return this.http.get('http://localhost:3000/stickers')
-      .map(response => response.json() as Sticker[]);
+      .pipe(
+        map(response => response.json() as Sticker[])
+      );
   }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TshirtsService } from './tshirts.service';
-import { Observable } from 'rxjs/Observable';
-import { Tshirt } from './tshirt.model';
-import { RootStore } from 'app/common';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { RootStore } from '../common';
 import { TshirtAddAction } from '../common/cart.reducer';
+import { TshirtsService } from './tshirts.service';
+import { Tshirt } from './tshirt.model';
 
 @Component({
   selector: 'smt-tshirts',

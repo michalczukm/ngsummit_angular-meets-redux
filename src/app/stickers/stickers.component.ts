@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { StickersService } from './stickers.service';
-import { Observable } from 'rxjs/Observable';
-import { Sticker } from './sticker.model';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { StickersService } from './stickers.service';
+import { Sticker } from './sticker.model';
 import { CartService } from '../cart/cart.service';
-import { RootStore } from '../common/index';
+import { RootStore } from '../common';
 import { StickerAddAction } from '../common/cart.reducer';
 import { FetchStickersAction } from '../common/stickers.reducer';
 

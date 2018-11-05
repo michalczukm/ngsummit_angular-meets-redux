@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Sticker } from '../stickers';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-import { RootStore } from 'app/common';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { Sticker } from '../stickers';
+import { RootStore } from '../common';
 import { StickerRemoveAction, TshirtRemoveAction } from '../common/cart.reducer';
 import { Tshirt } from '../tshirts/tshirt.model';
 

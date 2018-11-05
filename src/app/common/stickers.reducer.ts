@@ -1,4 +1,5 @@
-import { Action, Reducer, ActionReducer } from '@ngrx/store';
+import { Action } from '@ngrx/store';
+import { ActionReducer } from '@ngrx/store';
 import { Sticker } from '../stickers';
 
 export interface StickersStore {

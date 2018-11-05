@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 import { Sticker } from '../stickers';
 import { CartService } from './cart.service';
-import { Store } from '@ngrx/store';
-import 'rxjs';
 import { Tshirt } from '../tshirts/tshirt.model';
-import { RootStore } from 'app/common';
-import { CartQueries } from '../common/index';
+import { RootStore, CartQueries } from '../common';
 
 @Component({
   selector: 'smt-cart',
-  templateUrl: './cart.component.html'
+  templateUrl: './cart.component.html',
+  styles: [
+    `img {
+      width: 100px;
+    }`
+  ]
 })
 export class CartComponent implements OnInit {
   stickers$: Observable<Sticker[]>;
@@ -26,8 +30,8 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     const cart$ = this.cartService.get();
 
-    this.stickers$ = cart$.map(cart => cart.stickers);
-    this.tshirts$ = cart$.map(cart => cart.tshirts);
+    this.stickers$ = cart$.pipe(map(cart => cart.stickers));
+    this.tshirts$ = cart$.pipe(map(cart => cart.tshirts));
   }
 
   removeSticker(sticker: Sticker) {

@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs/Subscription';
-import { RootStore } from './common';
-import { CartQueries } from './common/index';
+import { RootStore, CartQueries } from './common';
 
 @Component({
   selector: 'smt-root',

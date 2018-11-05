@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StickersModule } from './stickers';
 import { CartModule } from './cart';
-import { createRootReducer } from './common';
+import { reducers } from './common';
 import { TshirtsModule } from './tshirts';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TshirtsModule } from './tshirts';
     CartModule,
     StickersModule,
     TshirtsModule,
-    StoreModule.provideStore(createRootReducer),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
